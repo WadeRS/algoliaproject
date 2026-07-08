@@ -33,7 +33,7 @@ export default function App() {
         <aside className="sidebar">
           <div className="facet-group">
             <h3>Brands</h3>
-            <RefinementList attribute="brand" searchable={true} />
+            <RefinementList attribute="brand"  />
           </div>
 
           <div className="facet-group">
