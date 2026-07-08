@@ -1,0 +1,311 @@
+:root {
+  --primary: #003dff;
+  --primary-hover: #002ac7;
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  background-color: var(--bg-surface);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #003dff 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.searchbox {
+  width: 50%;
+  max-width: 600px;
+}
+
+.ais-SearchBox-form {
+  display: flex;
+  position: relative;
+}
+
+.ais-SearchBox-input {
+  width: 100%;
+  padding: 14px 20px 14px 48px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 1rem;
+  color: var(--text-dark);
+  background-color: var(--bg-main);
+  transition: var(--transition);
+  outline: none;
+}
+
+.ais-SearchBox-input:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 61, 255, 0.15);
+}
+
+.ais-SearchBox-submit {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  fill: var(--text-muted);
+}
+
+.ais-SearchBox-reset {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  fill: var(--text-muted);
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  padding: 40px 48px;
+  gap: 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  flex: 0 0 260px;
+}
+
+.results {
+  flex: 1;
+  min-width: 0;
+}
+
+.facet-group {
+  margin-bottom: 32px;
+}
+
+.facet-group h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.ais-RefinementList-item {
+  margin-bottom: 10px;
+}
+
+.ais-RefinementList-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.ais-RefinementList-label:hover {
+  color: var(--primary);
+}
+
+.ais-RefinementList-checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.ais-RefinementList-checkbox:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.ais-RefinementList-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ais-RefinementList-count {
+  margin-left: auto;
+  background-color: var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.ais-Hits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hit-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.hit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 61, 255, 0.2);
+}
+
+.hit-image-container {
+  height: 180px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.hit-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.hit-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.hit-category {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.hit-name {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: var(--text-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ais-Highlight-highlighted {
+  background-color: rgba(0, 61, 255, 0.1);
+  color: var(--primary);
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+.hit-price {
+  margin-top: auto;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.pagination-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.ais-Pagination-list {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.ais-Pagination-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.ais-Pagination-link:hover {
+  background-color: var(--bg-main);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.ais-Pagination-item--selected .ais-Pagination-link {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
