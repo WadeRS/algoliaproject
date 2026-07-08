@@ -45,7 +45,6 @@ def push_to_algolia(records: List[Dict[str, Any]], index_name: str) -> None:
         
         logger.info(f"Pushing records to Algolia index '{index_name}'...")
         
-        # Call save_objects directly on the client and utilize wait_for_tasks for synchronization
         client.save_objects(
             index_name=index_name,
             objects=records,
