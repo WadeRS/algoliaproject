@@ -38,7 +38,7 @@ export default function App() {
 
           <div className="facet-group">
             <h3>Categories</h3>
-            <RefinementList attribute="categories" />
+            <RefinementList attribute="hierarchicalCategories.lvl0" />
           </div>
         </aside>
 
