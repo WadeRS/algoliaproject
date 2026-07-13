@@ -3,7 +3,6 @@ import os
 import sys
 import logging
 from typing import List, Dict, Any
-
 from algoliasearch.search.client import SearchClientSync
 
 logging.basicConfig(
