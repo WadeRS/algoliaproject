@@ -66,6 +66,7 @@ function Hit({ hit, sendEvent }) {
         <p className="hit-category">{hit.categories[0]}</p>
         <h2 className="hit-name">
           <Highlight attribute="name" hit={hit.name} />
+          {hit.name}
         </h2>
         <p className="hit-price">${hit.price}</p>
       </div>
