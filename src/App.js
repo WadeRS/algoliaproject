@@ -18,7 +18,7 @@ const searchClient = algoliasearch(
 
 export default function App() {
   return (
-    <InstantSearch searchClient={searchClient} indexName="alpha">
+    <InstantSearch searchClient={searchClient} indexName="alpha" insights={true}>
       <Configure hitsPerPage={8} />
 
       <header className="header">
@@ -53,9 +53,12 @@ export default function App() {
   );
 }
 
-function Hit({ hit }) {
+function Hit({ hit, sendEvent }) {
   return (
-    <article className="hit-card">
+    <article 
+      className="hit-card"
+      onClick={() => sendEvent('click', hit, 'Product Clicked')}
+    >
       <div className="hit-image-container">
         <img src={hit.image} alt={hit.name} className="hit-image" />
       </div>
@@ -63,7 +66,6 @@ function Hit({ hit }) {
         <p className="hit-category">{hit.categories[0]}</p>
         <h2 className="hit-name">
           <Highlight attribute="name" hit={hit.name} />
-          {hit.name}
         </h2>
         <p className="hit-price">${hit.price}</p>
       </div>
