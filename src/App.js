@@ -24,7 +24,7 @@ export default function App() {
       <header className="header">
         <h1 className="header-title">Search Demo</h1>
         <SearchBox
-          placeholder="Search for products, brands, or categories..."
+          placeholder="Search for products, brands, or categories"
           className="searchbox"
         />
       </header>
