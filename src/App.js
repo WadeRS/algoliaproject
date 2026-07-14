@@ -19,7 +19,7 @@ const searchClient = algoliasearch(
 export default function App() {
   return (
     <InstantSearch searchClient={searchClient} indexName="alpha" insights={true}>
-      <Configure hitsPerPage={8} />
+      <Configure hitsPerPage={9} />
 
       <header className="header">
         <h1 className="header-title">Search Demo</h1>
